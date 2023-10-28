@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.overlay{
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    z-index: -1;
+    opacity: 0;
+    transition: 1s;
+}
+.showoverlay{
+    opacity: 1;
+    z-index: 1;
+}
+.loginform{
+    width: 350px;
+    padding: 30px 20px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    box-shadow: 0px 0px 10px 3px #ccc;
+    transform: translate(-50%,-50%);
+    transition: 2s;
+    z-index: 9;
+}
+.showloginform{
+    top: 50%;
+}
+.loginform input{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.loginform span{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    color: white;
+    line-height: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: red;
+    text-align: center;
+    right: 0px;
+    top: 0px;   
+}
+.loginform span:hover{ background-color: whitesmoke; color: red; transition: 1s; }
+.logfrom{
+    padding: 5px 30px;
+    border-radius: 15px;
+    background:  red;
+    border: none;
+    font-weight: bold;
+    transition: 1.1s;
+   
+}
+.logfrom:hover{
+    background-color: rgb(202, 200, 200);
+    color: rgb(223, 25, 25);
+   
+}
+    </style>
+</head>
+<body>
+    <div class="Login-page">
+        <input class="btn-login submit" type="submit" value="Book Your Show">
+    </div>
+    <section>
+    <div class="overlay"></div>
+    
+    <div class="loginform">
+        <span class="close">&times;</span>
+        <form action="">
+            <div>
+            <label for="">Email</label>
+            <input type="email" id="email">
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="text" id="ps">
+            </div>
+            <button onclick="from()" class="logfrom">Login</button>
+        </form>
+    </div>
+</section>
+</body>
+<script>
+    function showModel(){
+        document.querySelector('.overlay').classList.add('showoverlay');
+        document.querySelector('.loginform').classList.add('showloginform');
+      
+       
+    }
+    function from(){
+        var c = document.getElementById("email").value;
+        var d = document.getElementById("ps").value;
+        alert('Your email is'+ c+'\npasword'+d);
+
+    }
+    function closeModel(){
+        document.querySelector('.overlay').classList.remove('showoverlay');
+        document.querySelector('.loginform').classList.remove('showloginform');
+    }
+
+    var btnlogin = document.querySelector(".btn-login");
+    btnlogin.addEventListener("click",showModel);
+
+    var btnlogin = document.querySelector(".close");
+    btnlogin.addEventListener("click",closeModel);
+     
+
+</script>
+</html>
